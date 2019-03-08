@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style/style.css">
+	<meta charset="UTF-8">
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<title>Mr.FuD Web prodotti</title>
+</head>
+<body>
+	<div class="container-fluid container-all">
+			<form id="searchform">
+				<div class="form-container ">
+					<div class="form-group col-12  col-sm-12  pad col-lg-12">
+						<p class="padme">Lista dei produttori con i loro prodotti!</p>
+					</div>
+					<div class="header-sub  col-lg-12">
+						<div class="form-group col-12  col-sm-12  col-lg-2">
+								<p calss="filt">Filter:</p>
+						</div>
+						<div class="form-group col-12  col-sm-12  col-lg-4">
+							<input type="text" class="form-control" id="prodottore" placeholder="Prodottore">
+						</div>
+						<div class="form-group col-12 col-sm-12 col-lg-4 ">
+							<input type="text" class="form-control" id="prodotto" placeholder="Prodotto">
+						</div>
+					</div>
+				</div>
+			</form>
+			<form id="displayform">
+				<div class="form-container form2">
+					<table id="wrapper" class="table table-hover">
+						<tr id="tr">
+							<th>PRODOTTORE</th>
+							<th>PRODOTTO</th>
+							<th>PROGRESSO</th>
+							<th>SFOGLIA IL FILE DESIDERATO</th>
+							<th>PDF CARICATO</th>
+							<th>RIMUOVI IL FILE CARICATO</th>
+					</table>
+				</div>
+			</form>
+			<div class="wrapper allin">
+				<div class="form-group col-12  col-sm-12  pad col-lg-12">
+					<p class="padme">
+						<a href="/changepass.html">Resetta la password</a>
+					</p>
+					<p id="logged"></p>
+					<button class="btn btn-default btn-rounded mb-4 rounded float-right" id="signoid" onclick="signout()">Esci</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="script/config.js"></script>
+	<script src="script/main.js"></script>
+	<script>
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				// User is signed in.
+				var readOneUser = firebase.database().ref('users/' + user.uid + '/' + 'role');
+				readOneUser.on('value', function (snapshot) {
+					if (snapshot.val() == 1) {
+						
+					} else {
+						// No user is signed in.
+						window.location.href = "index.html";
+					}
+				});
+			} else {
+				// No user is signed in.
+				window.location.href = "index.html";
+			}
+		});
+		
+	</script>
+</body>
+</html>

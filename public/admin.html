@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!--Barcode Reader Library-->
+	<script src="script/quagga.min.js"></script>
+
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="style/modalImg.css">
+
+	<meta charset="UTF-8">
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<title>Mr.FuD Web prodotti</title>
+</head>
+
+<body>
+	<div class="container-fluid container-all">
+		<form id="searchform">
+			<div class="form-container ">
+				<div class="form-group col-12  col-sm-12  pad col-lg-12">
+					<p class="padme">Lista dei produttori con i loro prodotti!</p>
+				</div>
+				<div class="form-group col-12  col-sm-12  padScan col-lg-12">
+					<input id="scanner_input" class="form-control" placeholder="Fare clic sul pulsante per scansionare un EAN ..." type="text"/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" data-toggle="modal" data-target="#livestream_scanner">
+							<i class="fa fa-barcode"></i>Scansione
+						</button>
+					</span>
+				</div>
+
+				<div class="header-sub  col-lg-12">
+					<div class="form-group col-12  col-sm-12 col-lg-4 ">
+						<label data-error="wrong" data-success="right" for="form34l">Revisionato</label>
+						<select class="form-control" id="typoverify" required>
+							<option id="idb1" value="false">FALSE</option>
+							<option id="idb2" value="true">TRUE</option>
+							<option id="idb0" value="any">ANY</option>
+						</select>
+					</div>
+					<div class="form-group col-12  col-sm-12  col-lg-4">
+						<label data-error="wrong" data-success="right" for="form34l">Prodottore</label>
+						<input type="text" class="form-control" id="prodottore" placeholder="Prodottore">
+					</div>
+					<div class="form-group col-12 col-sm-12 col-lg-4 ">
+						<label data-error="wrong" data-success="right" for="form34l">Prodotto</label>
+						<input type="text" class="form-control" id="prodotto" placeholder="Prodotto">
+					</div>
+					<div class="form-group col-12  col-sm-12  col-lg-4">
+						<button class="btn btn-default btn-rounded mb-4">Ricerca</button>
+					</div>
+				</div>
+
+			</div>
+		</form>
+		<form id="displayform">
+			<div class="form-container col-12  col-sm-12  pad col-lg-12">
+				<table id="wrapper" class="table table-hover">
+					<tr id="tr">
+						<th>PRODOTTORE:</th>
+						<th>PRODOTTO:</th>
+						<th>REVISIONATO:</th>
+						<th>CATEGORIA:</th>
+						<th>SCADENZA SPECIFICA:</th>
+						<th>TIPO CODICE A BARRE</th>
+						<th>CODICE A BARRE</th>
+						<th></th>
+				</table>
+			</div>
+		</form>
+
+		<div class="wrapper form-container allin">
+			<div class="form-group col-12  col-sm-12  pad col-lg-12">
+				<p class="padme">
+					<a href="/changepass.html">Resetta la password</a>
+				</p>
+				<p id="logged"></p>
+				<button class="btn btn-default btn-rounded mb-4 rounded float-right" id="signoid" onclick="signout()">Esci</button>
+			</div>
+		</div>
+
+		<!--Modal Image Preview-->
+		<div id="myModal" class="modal new">
+			<span class="close">&times;</span>
+			<img class="modal-content" id="img01">
+			<div id="caption"></div>
+		</div>
+
+		<!-- Modal -->
+		<form id="modifiyform" onload="myFunction()">
+			<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header text-center">
+							<h4 class="modal-title w-100 font-weight-bold">Modifica Prodotto</h4>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<div class="modalsucess">Cambia con successo!</div>
+						</div>
+						<div id="mydiv" class="modal-body mx-3">
+							<div class="md-form mb-5">
+								<i class="fas fa-envelope prefix grey-text"></i>
+								<label data-error="wrong" data-success="right" for="form29l">PRODOTTORE</label>
+								<input type="text" id="form29" class="form-control validate" required>
+							</div>
+							<div class="md-form mb-5">
+								<i class="fas fa-user prefix grey-text"></i>
+								<label data-error="wrong" data-success="right" for="form34l">Prodotto</label>
+								<input type="hidden" id="formid" class="form-control validate" required>
+								<input type="text" id="form34" class="form-control validate" required>
+							</div>
+
+							<div class="md-form mb-5">
+								<i class="fas fa-tag prefix grey-text"></i>
+								<label data-error="wrong" data-success="right" for="form32l">REVISIONATO</label>
+								<select class="form-control validate" onchange="setOptions(this)" onload="Loadme(this)" id="form32" required>
+									<option id="form321" value="false">FALSE</option>
+									<option id="form322" value="true">TRUE</option>
+								</select>
+							</div>
+							<div class="md-form mb-5">
+								<i class="fas fa-envelope prefix grey-text"></i>
+								<label data-error="wrong" data-success="right" for="form33l">CATEGORIA</label>
+								<select class="form-control validate" id="form33" required>
+									<option id="form331" value="Altri ingredienti">Altri ingredienti</option>
+									<option id="form332" value="Carni avicunicole">Carni avicunicole</option>
+									<option id="form333" value="Carni bovine">Carni bovine</option>
+									<option id="form334" value="Carni ovicaprine">Carni ovicaprine</option>
+									<option id="form335" value="Carni suine">Carni suine</option>
+									<option id="form337" value="Formaggi a lunga stagionatura">Formaggi a lunga stagionatura</option>
+									<option id="form338" value="Formaggi freschi e cremosi">Formaggi freschi e cremosi</option>
+									<option id="form339" value="Paste fresche ripiene e non">Paste fresche ripiene e non</option>
+									<option id="form340" value="Prodotti decongelati">Prodotti decongelati</option>
+									<option id="form341" value="Prodotti di gastronomia">Prodotti di gastronomia </option>
+									<option id="form342" value="Prodotti di pasticceria">Prodotti di pasticceria</option>
+									<option id="form343" value="Prodotti sott'olio o salamoia">Prodotti sott'olio o salamoia</option>
+									<option id="form344" value="Pronti a cuocere">Pronti a cuocere</option>
+									<option id="form345" value="Salumi cotti - mortadella">Salumi cotti - mortadella</option>
+									<option id="form347" value="Salumi crudi - pancetta">Salumi crudi - pancetta</option>
+									<option id="form348" value="Salumi crudi - prosciutto crudo">Salumi crudi - prosciutto crudo</option>
+									<option id="form349" value="Salumi crudi - salame crudo	">Salumi crudi - salame crudo </option>
+								</select>
+							</div>
+							<div class="md-form mb-5">
+								<i class="fas fa-envelope prefix grey-text"></i>
+								<label data-error="wrong" data-success="right" for="form33l">CODICE A BARRE</label>
+								<input id="scanner_input2" class="form-control" placeholder="Fare clic sul pulsante per scansionare un EAN ..." type="text"
+								/>
+							</div>
+						</div>
+
+						<div class="modal-footer d-flex justify-content-center">
+							<button class="btn btn-primary btn-rounded mb-4" type="button" data-toggle="modal" id="ModScanId" data-target="#livestream_scanner">
+								<i class="fa fa-barcode"></i>Scansione
+							</button>
+							<button class="btn btn-primary btn-rounded mb-4">
+								Aggiornare
+								<i class="fas fa-paper-plane-o ml-1"></i>
+							</button>
+							<button type="button" class="btn btn-danger btn-rounded mb-4" data-dismiss="modal">
+								Annulla
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+
+		<div class="modal" id="livestream_scanner">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title">Barcode Scanner</h4>
+					</div>
+					<div class="modal-body" style="position: static">
+						<div id="interactive" class="viewport"></div>
+						<div class="error"></div>
+					</div>
+					<!--<div class="modal-footer">
+						<label class="btn btn-default pull-left">
+							<i class="fa fa-camera"></i> Use camera app
+							<input type="file" accept="image/*;capture=camera" capture="camera" class="hidden" />
+						</label>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+					</div>-->
+					<div class="modal-footer d-flex justify-content-center">
+						<button type="button" class="btn btn-danger btn-rounded mb-4" data-dismiss="modal">
+							Annulla
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	</div>
+
+	<script src="script/config.js"></script>
+	<script src="script/admin.js"></script>
+	<style>
+		#interactive.viewport {
+			position: relative;
+			width: 100%;
+			height: auto;
+			overflow: hidden;
+			text-align: center;
+		}
+
+		#interactive.viewport>canvas,
+		#interactive.viewport>video {
+			max-width: 100%;
+			width: 100%;
+		}
+
+		canvas.drawing,
+		canvas.drawingBuffer {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+	<script>
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				// User is signed in.
+				var readOneUser = firebase.database().ref('users/' + user.uid + '/' + 'role');
+				readOneUser.on('value', function (snapshot) {
+					if (snapshot.val() == 0) {
+
+					}else {
+						window.location.href = "index.html";
+					}
+				});
+			} else {
+				// No user is signed in.
+				window.location.href = "index.html";
+			}
+		});
+	</script>
+
+</body>
+
+</html>

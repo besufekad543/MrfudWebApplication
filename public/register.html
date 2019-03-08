@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="style/style.css">
+	<meta charset="UTF-8">
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+
+	<title>Mr.FuD Web Registrare</title>
+</head>
+
+<body>
+	<div class="container-fluid container-all">
+		<div class="col-12 col-sm-12 col-lg-8  container-left">
+
+			<div class="logo-container">
+				<img class="logo" alt="logo Mr.FuD" src="img/Web_Logo_Web.png">
+			</div>
+			<div class="cont-body">
+				<div class="col-12 col-sm-7 col-lg-7  gridt">
+					<div class="col-lg-12">
+						<h2>Partecipa alla beta di Mr.FuD </h2>
+					</div>
+					<div class="col-lg-10">
+						<p class="ling"></p>
+						<p class="p-desc">
+							Mr.FuD è un software che permette di gestire e semplificare le operazioni di rintracciabilità dei prodotti venduti o somministrati.
+							Se vuoi partecipare al programma beta ed ottenere FuD Points che potrai utilizzare per ottenere sconti sulla versione
+							finale compila il form con i tuoi dati. Il FuD Team provvedrà ad inviarti tutte le informazioni necessarie per cominciare.
+							Cosa aspetti?
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-5 col-lg-4  align-bottom">
+					<img class="mano " alt="mano che tiene smartphone con Mr.FuD installato" src="img/Web_Low_Mano.png">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12 col-lg-4   container-right">
+			<div class="pad col-lg-12">
+				<h3>Compila tutti i campi per poterti registrare. Ti invieremo tutte le informazioni e credenziali di accesso!</h3>
+				<div class="alert">
+						<!--Il tuo account è stato creato con successo-->
+						</br>Grazie, Per completare la registrazione, verifica la tua email!
+						</br>
+						<!--<button class="verifyme" onclick="sendEmailVerification()">Inviare la verifica</button>-->
+						<div class="waiting">In attesa di conferma, si prega di controllare la tua email per conferma!</div>
+						<div class="success">Verifica completata con successo!</div>
+				</div>	
+			</div>
+			<form id="registerform">
+				<div class="form-container ">
+					<table id="wrapper1">
+						<tr>
+							<td>
+								<div class="header-sub  col-lg-12">
+									<div class="form-group col-12 col-sm-12 col-lg-6 ">
+										<input type="text" class="form-control" id="nome" placeholder="Nome">
+										<div class="invalid-feedback-nome">
+											Inserisci un nome
+										</div>
+									</div>
+									<div class="form-group col-12  col-sm-12  col-lg-6">
+										<input type="text" class="form-control" id="cognome" placeholder="Cognome">
+										<div class="invalid-feedback-cognome">
+											Inserisci un cognome
+										</div>
+									</div>
+
+									<div class="form-group col-12  col-sm-12  col-lg-12">
+										<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" required>
+										<div class="invalid-feedback-email">
+											Inserisci una email
+										</div>
+									</div>
+									<div class="form-group col-12  col-sm-12  col-lg-12">
+										<input type="password" class="form-control" id="passwrd" aria-describedby="passwrdHelp" placeholder="Password" required>
+										<div class="invalid-feedback-email">
+											Inserisci una password
+										</div>
+									</div>
+									<div class="form-group col-12  col-sm-12  col-lg-12">
+											<input type="password" class="form-control" id="confpasswrd" aria-describedby="passwrdHelp" placeholder="Conferma Password" required>
+											<div class="invalid-feedback-email">
+											 Conferma la tua password
+											</div>
+									</div>
+									<div class="form-group col-12  col-sm-12 col-lg-12">
+										<input type="text" class="form-control" id="telefono" placeholder="Telefono">
+										<div class="invalid-feedback-telefono">
+											Inserisci un numero di telefono
+										</div>
+									</div>
+
+									<div class="form-group col-12  col-sm-12 col-lg-12 ">
+										<select class="form-control" id="tipoAttivita" required>
+											<option value="0">Attività</option>
+											<option value="02">Macelleria</option>
+											<option value="01">Gastronomia</option>
+											<option value="01">Albergo</option>
+											<option value="02">Ristorante</option>
+											<option value="03">Bar</option>
+										</select>
+									</div>
+									<div class="form-group col-12  col-sm-6 col-lg-6">
+										<input type="text" class="form-control" id="indirizzoAttivita" placeholder="Indirizzo">
+										<div class="invalid-feedback-indirizzoAttivita">
+											Inserisci un indirizzo
+										</div>
+									</div>
+									<div class="form-group  col-12 col-sm-6 col-lg-6 ">
+										<input type="text" class="form-control" id="ragioneSociale" placeholder="Ragione sociale">
+										<div class="invalid-feedback-ragioneSociale">
+											Inserisci una ragione sociale
+										</div>
+									</div>
+									<div class="form-group  col-sm-12 col-lg-12">
+										<label for="exampleFormControlTextarea1">Termini e condizioni</label>
+										<textarea readonly class="form-control" id="termini" rows="10">
+							
+CONTRATTO DI LICENZA D’USO SOFTWARE
+										
+Premesso che
+a)	CEAN S.p.A. (di seguito anche "Licenziante") è una società negli ultimi anni ha inteso sviluppare la propria già nota attitudine all’offerta di servizi in generale nel settore commerciale, dedicandosi anche alla gestione e sviluppo di servizi informativi in linea con il proprio settore;
+b)	CEAN S.p.A. ha sviluppato e creato il software denominato MR FUD (di seguito anche “il Software”), idoneo ad essere installato su tablet e/o smartphone per realizzare un servizio digitale consistente nella tracciabilità dei prodotti alimentari e dei MOCA.
+c)	CEAN S.p.A. è l’unica titolare di tutti i diritti sul Software, del codice sorgente nonché del segno distintivo MR FUD;
+d)	CEAN S.p.A. (di seguito anche il “Licenziante”) intende concedere al Licenziatario a titolo gratuito per un tempo limitato al solo al fine dello svolgimento di test di gradimento e di funzionamento del programma, il diritto all’utilizzo su base non esclusiva del Software.
+Tutto ciò premesso le parti in epigrafe
+										
+CONVENGONO E STIPULANO QUANTO SEGUE
+Art. 1 – Oggetto della licenza
+										
+1.	Nel rispetto dei termini e delle condizioni contenute nel presente contratto, la Licenziante concede a titolo gratuito al Licenziatario, licenza d’uso su base non esclusiva del diritto all’utilizzo del software denominato MR FUD.
+
+2.	Il Licenziatario potrà liberamente scaricare una copia del software in qualsiasi momento dagli store disponibili. Successivamente alla richiesta di autorizzazione all’uso effettuata tramite portale MRFUD o direttamente tramite CEAN spa, il Licenziante fornirà le credenziali necessarie per utilizzare il software. Il licenziante sospenderà le credenziali in caso di scadenze del periodo di valutazione o in caso di mancato regolare pagamento o inadempimento al presente accordo. 
+	
+3.	La titolarità di tutti i diritti sul Software – ivi compreso quello di concedere licenza d’uso ad ulteriori soggetti terzi – sul codice sorgente e sul segno distintivo MR FUD rimangono in capo esclusivamente a CEAN S.p.A. e sono espressamente esclusi dall’oggetto della licenza d’uso del Software.
+										
+4.	Il Licenziatario prende atto, accetta e riconosce che il presente contratto, il Software ed in generale tutto quanto oggetto della licenza è finalizzato esclusivamente all’esecuzione un test, non ha validità normativa e quindi non sostituisce in alcun modo la procedura di rintracciabilità attualmente utilizzata dal Licenziatario e prevista dalla normativa vigente.
+										
+Art. 2 – Condizioni generali di utilizzo del Software
+										
+1.	Il Licenziatario avrà diritto di utilizzare il Software così come disponibile al momento sullo STORE da cui è stato scaricato, per la durata del beta test esclusivamente per finalità di esecuzione del test di funzionamento e di gradimento e quindi non per finalità commerciali o nell’ambito di attività produttive o aziendali, rispettando le finalità e le specifiche tecnologico-funzionali indicata del Licenziante. 
+2.	È fatto espresso divieto al Licenziatario di compiere, anche in maniera parziale, qualsiasi trasformazione, modifica, riproduzione, traduzione, adattamento, copiatura o duplicazione del software MR FUD e comunque le operazioni previste dall’art. 64 bis, lett. a) e b) della L. 633/1941. Una volta cessato il rapporto contrattuale tra le parti, a qualunque titolo, il Licenziatario con credenziali revocate potrà rinnovare o prorogare il periodo di utilizzo, nonché scaricare i propri dati per un periodo di mesi 3, dopo i quali CEAN spa provvederà alla  cancellazione degli stessi. 
+
+										
+Art. 3 – Divieto di cessione e sublicenza
+1.	È fatto espresso divieto al Licenziatario di distribuire al pubblico, cedere e/o concedere in sublicenza il Software o comunque di consentirne l’uso a terzi soggetti, sia a titolo oneroso che a titolo gratuito, senza il preventivo consenso scritto di CEAN S.p.A.
+Art. 4 – Consegna e Installazione
+1.	Il download e l'installazione avviene in modo autonomo tramite gli store Apple e Google.
+La registrazione dell'utente (tramite sito internet o diretta tramite CEAN) permette il rilascio delle credenziali utente necessarie al funzionamento
+2.	È onere del Licenziatario la verifica dei requisiti minimi richiesti per l’utilizzo del Software (quali, a titolo esemplificativo, una connessione a internet, utilizzo di hardware/smartphone compatibili in base alle specifiche fornite da CEAN ecc.). 
+3.	È altresì onere del Licenziatario quello di verificare che gli elaboratori ed il sistema operativo, sui quali il Software sarà installato, abbiano una configurazione idonea al suo corretto funzionamento. Qualunque incompatibilità dovesse emergere a seguito dell’installazione del Software non sarà in alcun modo imputabile a CEAN S.p.A.
+Art. 5 – Limitazioni di responsabilità
+1.	CEAN S.p.A. resta esonerata da ogni e qualsiasi responsabilità contrattuale e/o extracontrattuale per danni indiretti (sia con riferimento al danno emergente che al lucro cessante) subiti dal Licenziatario e/o da terzi in conseguenza dell’utilizzo del Software, anche se in linea con le specifiche tecnologico-funzionali fornite dal Licenziante.
+2.	La responsabilità di CEAN S.p.A. per qualsiasi danno diretto che dovesse essere patito dal Licenziatario per causa imputabile alla Licenziante, che dovrà comunque essere valutata caso per caso, si intende espressamente limitata all’importo massimo di Euro 500,00 
+3.	Resta inteso che l’eventuale responsabilità di CEAN S.p.A. prevista dal punto 2 del presente articolo è condizionata al corretto utilizzo del Software da parte del Licenziatario in ossequio alle specifiche tecnologico-funzionali fornite al Licenziatario al momento del download. In caso di utilizzo del Software non conforme ai predetti parametri, l’esonero da responsabilità di cui al punto 1 del presente articolo si intende espressamente esteso anche ai danni diretti subiti dal Licenziatario.
+4.	L’utilizzo del software comporta l’inserimento e la gestione di dati provenienti da fonti differenti. CEAN spa è responsabile dei dati riconducibili alle seguenti categorie: 
+●	nomi e dati generici prodotto
+●	scadenze generali categorie
+●	anagrafiche utenti
+●	log di sistema 
+Il LICENZIATARIO è esclusivo responsabile dei dati riconducibili alle seguenti categorie:
+●	immagini memorizzate
+●	nomi prodotti inseriti
+●	nomi ricette / pronti a cuocere inseriti
+●	date riferibili a qualsiasi categoria inserite
+●	qualsiasi altro dato inserito durante l’utilizzo del software 
+CEAN SPA si avvale di fornitori di servizi esterni (Database GOOGLE) per la gestione e lo stoccaggio delle informazioni.
+Nessuna responsabilità viene assunta da CEAN S.p.A. con riguardo ai dati di esclusiva competenza del LICENZIATARIO sopra indicati né con riguardo alle modalità di svolgimento dei servizi da parte delle società esterne
+
+Art. 6 – Informazioni riservate
+1.	Il Software e la documentazione fornita da CEAN S.p.A. al Licenziatario costituiscono informazioni di esclusiva proprietà della Licenziante e sono coperti dal diritto d’autore in virtù delle norme di legge applicabili. Il Licenziatario si impegna a mantenere riservati tutti i predetti materiali e le informazioni ricevuti da CEAN S.p.A. e si impegna a farne uso esclusivamente secondo i termini e le modalità previste dal presente contratto di licenza. 
+2.	Il Licenziatario si impegna altresì a non fornire né a rendere disponibili in alcuna forma le informazioni ed i materiali suindicati ad alcuna persona fisica o giuridica, eccezion fatta per i propri dipendenti e collaboratori che dovranno essere tenuti ad analogo obbligo di riservatezza.
+3.	Al fine di ottemperare a quanto previsto dai punti 1 e 2 del presente articolo, il Licenziatario si impegna a prendere tutte le misure necessarie per adempiere alle obbligazioni di segretezza e riservatezza ivi contenute. 
+										
+Art. 7 – Modifiche contrattuali
+Qualunque modifica al presente contratto di licenza d’uso dovrà necessariamente essere concordata dalle parti per iscritto. 
+										
+Art. 8 – Tutela dei dati personali
+In relazione alle disposizioni a tutela dei dati personali, le parti si danno reciprocamente atto che i dati forniti per effetto del presente contratto saranno trattati con la massima riservatezza e nel pieno rispetto della normativa vigente in materia di protezione dei dati personali ai sensi del Regolamento n. 679/2016 e del D. Lgs. n. 196/2003, così come modificato dal D. Lgs. n. 101/2018. L’informativa completa del trattamento dei dati da parte di Cean S.p.A. può essere reperita sul sito www.cean.it.
+										
+Art. 9 – Foro esclusivamente competente
+Per qualunque controversia relativa o connessa al presente contratto di licenza d’uso ed alla sua cessazione per qualunque causa, sarà competente in via esclusiva il foro di Torino.
+
+									</textarea>
+									</div>
+									<div class="form-check col-sm-12 col-lg-12 ">
+										<input type="checkbox" class="form-check-input" id="accetto" required>
+										<label class="form-check-label" for="accetto">Accetto i termini e le condizioni</label>
+										<div class="invalid-feedback-accetta">
+											Devi accettare i termini
+										</div>
+									</div>
+
+									<div class="col-sm-12 col-lg-12">
+										<button class="btn btn-primary " id="newContact">Iscriviti</button>
+									</div>
+								</div>
+
+								
+								<div class="footer-container">
+									Email:
+									<a href="mailto:supporto@mrfud.it">supporto@mrfud.it</a>
+									<br> Mr.FuD è un prodotto di
+									<a href="https://www.cean.it">Cean</a>
+									<br> Mr.FuD Copyright © 2018 | Diritti riservati
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+
+	 
+		</div>
+	</div>
+	<script src="script/config.js"></script>
+	<script src="script/register.js"></script>
+</body>
+</html>

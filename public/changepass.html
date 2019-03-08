@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="style/style.css">
+	<meta charset="UTF-8">
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+
+	<title>Mr.FuD Web Registrare</title>
+</head>
+
+<body>
+	<div class="container-fluid container-all">
+		<div class="col-12 col-sm-12 col-lg-8  container-left">
+
+			<div class="logo-container">
+				<img class="logo" alt="logo Mr.FuD" src="img/Web_Logo_Web.png">
+			</div>
+			<div class="cont-body">
+				<div class="col-12 col-sm-7 col-lg-7  gridt">
+					<div class="col-lg-12">
+						<h2>Partecipa alla beta di Mr.FuD </h2>
+					</div>
+					<div class="col-lg-10">
+						<p class="ling"></p>
+						<p class="p-desc">
+							Mr.FuD è un software che permette di gestire e semplificare le operazioni di rintracciabilità dei prodotti venduti o somministrati.
+							Se vuoi partecipare al programma beta ed ottenere FuD Points che potrai utilizzare per ottenere sconti sulla versione
+							finale compila il form con i tuoi dati. Il FuD Team provvedrà ad inviarti tutte le informazioni necessarie per cominciare.
+							Cosa aspetti?
+						</p>
+					</div>
+				</div>
+				<div class="col-sm-5 col-lg-4  align-bottom">
+					<img class="mano " alt="mano che tiene smartphone con Mr.FuD installato" src="img/Web_Low_Mano.png">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-sm-12 col-lg-4   container-right">
+			<div class="pad col-lg-12">
+			 
+				<div class="alert">
+					<!--Il tuo account è stato creato con successo-->
+					</br>Grazie, Per completare la registrazione, verifica la tua email!
+					</br>
+					<!--<button class="verifyme" onclick="sendEmailVerification()">Inviare la verifica</button>-->
+					<div class="waiting">In attesa di conferma, si prega di controllare la tua email per conferma!</div>
+					<div class="success">Verifica completata con successo!</div>
+				</div>
+			</div>
+
+			<form id="changeform">
+				<div class="form-container ">
+					<table id="wrapper1">
+						<tr>
+							<td>
+								<div class="header-sub  col-lg-12">
+									 
+									<h3>Cambia la tua password</h3>
+									<div class="form-group col-12  col-sm-12  col-lg-12">
+										<input type="email" class="form-control" id="oldemail" aria-describedby="emailHelp" placeholder="Email" required>
+										<div class="invalid-feedback-email">
+											Inserisci una email
+										</div>
+									</div>
+							 
+									<div class="col-sm-12 col-lg-12">
+										<button class="btn btn-primary" id="ressetpass">Resetta password</button>
+									 
+									</div>
+									<div class="col-sm-12 col-lg-12 padme">
+											<p id="logged"></p>
+									
+											<button class="btn btn-default btn-rounded mb-4 rounded" id="signoid" onclick="signout()">Esci</button>
+									</div>
+									
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</form>
+	 
+		</div>
+	</div>
+	<script src="script/config.js"></script>
+	<script src="script/chgpwd.js"></script>
+ 
+	<script>
+			firebase.auth().onAuthStateChanged(function (user) {
+				if (user) {
+					// User is signed in.
+				} else {
+					// No user is signed in.
+					window.location.href = "index.html";
+				}
+			});
+		</script>
+</body>
+
+</html>

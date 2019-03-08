@@ -1,0 +1,445 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
+}
+
+h3 {
+	padding-bottom: 30px 20px;
+	padding-top: 10%;
+}
+
+a {
+	color: #575756;
+}
+
+.container-all {
+	height: 100vh;
+	padding: 0;
+	background-color: #E8DBB2;
+}
+
+.blocco12 {
+	height: 100%;
+}
+
+.blocco6 {
+	height: 100%;
+}
+
+.full-height {
+	height: 100%;
+}
+
+.footer-container {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	left: 0;
+	text-align: center;
+}
+
+.container-left {
+	background: #b16a5a;
+	/* Old browsers */
+	background: -moz-linear-gradient(top, #b16a5a 0%, #de6e3c 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #b16a5a 0%, #de6e3c 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #b16a5a 0%, #de6e3c 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b16a5a', endColorstr='#de6e3c', GradientType=0);
+	/* IE6-9 */
+	height: 100vh;
+	padding: 0;
+}
+
+.container-right {
+	padding: 0;
+	height: 100vh;
+	background-color: #E8DBB2;
+}
+
+.invalid-feedback-nome, .invalid-feedback-cognome, .invalid-feedback-email, .invalid-feedback-telefono, .invalid-feedback-indirizzoAttivita, .invalid-feedback-ragioneSociale, .invalid-feedback-versione, .invalid-feedback-freeversioni, .invalid-feedback-subtime, .invalid-feedback-accetta {
+	display: none;
+	color: #DE6E3D;
+}
+
+.form-container {
+	padding: 0 20px;
+	height: 100%;
+	background-color: #E8DBB2;
+	overflow-x:auto;
+}
+
+ 
+
+.btn-primary {
+	background-color: #FFFFFF;
+	color: #575756;
+	border-radius: 0;
+	border-color: #575756;
+}
+
+.form-control {
+	background-color: #FFFFFF !important;
+	color: #575756;
+	border-radius: 0;
+}
+
+input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #575756 !important;
+	opacity: 1;
+	/* Firefox */
+}
+
+.logo-container {
+	width: 240px;
+	margin: 0 auto;
+	height: 30vh;
+}
+
+.logo-container img {
+	height: 85%;
+	margin: 30px auto;
+}
+
+.cont-body {
+	height: 70vh;
+	padding-top: 20px;
+}
+.cont-body1{
+	height: 70vh;
+	padding-top: 150px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+h2 {
+	font-size: 5vw;
+	color: #E18B6F;
+	font-weight: 100;
+	padding: 30px 20px;
+	margin: 0;
+}
+
+.p-desc {
+	color: #fff;
+	font-size: 18px;
+	padding: 10px 20px;
+}
+
+.ling {
+	width: 50px;
+	border-bottom: 2px solid #fff;
+	margin: 20px 20px;
+}
+
+.top-body {
+	height: 35vh;
+}
+
+.bottom-body {
+	height: 32vh;
+}
+
+#wrapper1 {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/*border-bottom: 1px solid rgb(87, 78, 78);*/
+}
+
+#wrapper1 td {
+	vertical-align: middle;
+	text-align: center;
+	padding: 5px;
+	/*border-bottom: 1px solid rgb(87, 78, 78);*/
+}
+
+#wrapper {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/*border-bottom: 1px solid rgb(87, 78, 78);*/
+}
+
+#wrapper td {
+	vertical-align: middle;
+	text-align: left;
+	padding: 5px;
+	/*border-bottom: 1px solid rgb(87, 78, 78);*/
+}
+
+#wrapper th {
+	vertical-align: middle;
+	text-align: left;
+	padding: 5px;
+	/*border-bottom: 1px solid rgb(87, 78, 78);*/
+}
+
+ 
+
+.mano {
+	width: 100%;
+	overflow: hidden;
+}
+
+.align-bottom {
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.align-bottom img {
+	position: absolute;
+	top: 30px;
+	left: 0;
+}
+
+.gridt {
+	display: grid;
+	height: 100%;
+}
+
+#termini {
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.alert {
+	text-align: center;
+	padding: 10px;
+	background: #79c879;
+	color: #fff!important;
+	display: none;
+	font-size: 16px;
+}
+
+.userparag {
+	text-align: center;
+	font-size: 16px;
+}
+
+a.lk {
+	color: #fff!important;
+	text-decoration: underline;
+}
+
+.bgfor {
+	background-color: #E8DBB2;
+}
+
+button.verifyme {
+	background: none!important;
+	color: inherit;
+	border: none;
+	padding: 0!important;
+	font: inherit;
+	border-bottom: 1px solid #fff;
+	cursor: pointer;
+}
+
+.pad {
+	text-align: center;
+}
+.padScan {
+	text-align: right;
+}
+
+.othFor {
+	text-align: center;
+	padding: 10px!important;
+	padding-left: 10px!important;
+	display: inline-block;
+	max-width: 100%;
+	margin-bottom: 5px;
+	font-weight: 700;
+}
+
+.padme {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+#logged{
+	font-weight: 300;
+	font-size: 14px;
+}
+.idhide {
+	display: none;
+}
+
+.modalsucess {
+	color: green;
+	text-align: left;
+	font-weight: bold;
+}
+
+.modal-title {
+	font-weight: bold;
+	font-size: 28px;
+}
+
+.adminextra {
+	text-align: left;
+}
+
+#signoid {
+	text-align: center;
+}
+
+.allin {
+	height: 25%;
+	background-color: #E8DBB2;
+} 
+
+.filt{
+	font-size: 18px!important;
+}
+ 
+
+
+/*Modal for image*/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+	.align-bottom img {
+		position: absolute;
+		top: auto;
+		right: 28px;
+		bottom: -70px;
+		left: auto;
+	}
+	h2 {
+		font-size: 7vw;
+		padding: 160px 20px 0px;
+	}
+	.p-desc {
+		font-size: 25px;
+	}
+	.logo-container, .logo-container img {
+		width: 400px;
+		height: auto;
+		margin-bottom: 0;
+	}
+	.logo-container {
+		margin-top: 40px;
+	}
+	
+	
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+	.gridt {
+		display: block;
+		height: auto;
+	}
+	
+}
+@media only screen and (min-device-width: 480px) and (max-device-width: 640px) and (orientation: landscape) {
+	.allin {
+		height: 50%;
+		background-color: #E8DBB2;
+	}
+	
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+	.logo-container {
+		width: 60%;
+		margin: 0 auto;
+		height: 30vh;
+	}
+	.logo-container img {
+		width: 100%;
+	}
+	.gridt {
+		display: block;
+	}
+	h2 {
+		font-size: 12vw;
+		color: #E18B6F;
+		font-weight: 100;
+		padding: 30px 20px;
+		margin: 0;
+	}
+	.form-control {
+		display: block;
+		width: 100%;
+		height: 80px;
+		font-size: 31px;
+	}
+	h3 {
+		font-size: 50px;
+		padding-bottom: 20px;
+	}
+	label {
+		font-size: 31px;
+		padding: 20px;
+	}
+	input[type=checkbox] {
+		/* Double-sized Checkboxes */
+		-ms-transform: scale(2);
+		/* IE */
+		-moz-transform: scale(2);
+		/* FF */
+		-webkit-transform: scale(2);
+		/* Safari and Chrome */
+		-o-transform: scale(2);
+		/* Opera */
+		padding: 10px;
+	}
+	/* Might want to wrap a span around your checkbox text */
+	.checkboxtext {
+		/* Checkbox text */
+		font-size: 130%;
+		display: inline;
+	}
+	input[type=checkbox], input[type=radio] {
+		margin: 4px 20px 0;
+	}
+	.p-desc {
+		font-size: 30px !important;
+	}
+	.align-bottom img {
+		position: absolute;
+		top: auto;
+		left: 0;
+		bottom: 0;
+	}
+	.btn {
+		display: inline-block;
+		padding: 17px 22px;
+		margin-bottom: 0;
+		font-size: 30px;
+	}
+	.custom-btn{
+		width: 20%;
+	}	
+
+	.footer-container {
+		font-size: 30px;
+	}
+
+	.allin {
+		height: 35%;
+		background-color: #E8DBB2;
+	} 
+	 
+}
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) {
+	.align-bottom img {
+		position: absolute;
+		top: 100px;
+		left: 0;
+	}
+	.p-desc {
+		color: #fff;
+		font-size: 15px;
+		padding: 10px 20px;
+	}
+}

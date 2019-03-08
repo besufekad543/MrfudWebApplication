@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style/style.css">
+	<meta charset="UTF-8">
+	<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+	<title>Mr.FuD Web prodotti</title>
+</head>
+<body>
+	<div class="container-fluid container-all">
+		<div class="col-12 col-sm-12 col-lg-6  container-left">
+			 
+		</div>
+		<div class="col-sm-12 col-lg-6 container-right">
+				<form id="importfile">
+						<div class="form-container cont-body1 gridt">
+							<div class="row">
+								<h1>Import data</h1>
+							</div>
+							<div class="row">
+								<div class="col-sm-12 col-lg-6 ">
+										<input type="file"  class="upbtn" id="fileName" value="upload"/>
+								</div>
+								<div class="col-sm-12 col-lg-6 ">
+										<button class="btn btn-primary" id="import" type="submit">IMPORT</button>
+								</div>
+							</div>	
+						</div>
+				</form>
+				 
+		</div>
+	</div>
+	<script src="script/config.js"></script>
+	<script src="script/import.js"></script>
+	<script>
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				// User is signed in.
+				var readOneUser = firebase.database().ref('users/' + user.uid + '/' + 'role');
+				readOneUser.on('value', function (snapshot) {
+					if (snapshot.val() == 2) {
+
+					} else {
+						// No user is signed in.
+						window.location.href = "index.html";
+					}
+				});
+			} else {
+				// No user is signed in.
+				window.location.href = "index.html";
+			}
+		});
+		
+	</script>
+</body>
+</html>
